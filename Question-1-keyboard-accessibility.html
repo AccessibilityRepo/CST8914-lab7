@@ -318,8 +318,18 @@
   </main>
 
   <script>
+    // Fix #8: Make sure the link only opens when button is clicked.
     function getFocus() {
-      window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html', 'mywindow').focus()
+      // Try to open a new window
+      var newWindow = window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html', 'mywindow');
+
+      // Check if the new window was successfully opened
+      if (newWindow) {
+        newWindow.focus(); // Bring the new window into focus
+      } else {
+        // Notify the user if the pop-up is blocked
+        alert('Please allow pop-ups for this site to complete the action.');
+      }
     }
   </script>
 </body>
